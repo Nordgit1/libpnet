@@ -42,12 +42,12 @@ pub mod linux;
 
 #[cfg(all(
     not(feature = "netmap"),
-    any(target_os = "freebsd", target_os = "openbsd", target_os = "macos", target_os = "ios")
+    any(target_os = "freebsd", target_os = "openbsd", target_os = "macos", target_os = "ios", target_os = "tvos")
 ))]
 #[path = "bpf.rs"]
 mod backend;
 
-#[cfg(any(target_os = "freebsd", target_os = "macos", target_os = "ios"))]
+#[cfg(any(target_os = "freebsd", target_os = "macos", target_os = "ios", target_os = "tvos"))]
 pub mod bpf;
 
 #[cfg(feature = "netmap")]
